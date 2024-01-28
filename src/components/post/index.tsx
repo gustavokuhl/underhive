@@ -16,7 +16,7 @@ export default function Post({ post }: PostProps) {
           src={post.thumbnail}
           alt="Post thumbnail"
           fill
-          className="rounded-md"
+          className="sm:rounded-md"
         />
       </div>
       <PostFooter post={post} />

@@ -11,7 +11,7 @@ interface PostFooterProps {
 
 export default function PostFooter({ post }: PostFooterProps) {
   return (
-    <Flex justifyContent="between">
+    <Flex justifyContent="between" className="px-2 sm:px-0">
       <PostVoters voters={post.voters} />
       {/* Icons */}
       {/* <Flex className="gap-1 text-muted-foreground">
@@ -31,7 +31,12 @@ function PostVoters({ voters }: PostVotersProps) {
   const bestReputationVoter: string | null = voters[0] ?? null
   const votesLenght = voters.length - 1
 
-  if (!bestReputationVoter) return <p>No votes yet</p>
+  if (!bestReputationVoter)
+    return (
+      <p className="text-xs leading-5 font-normal text-muted-foreground">
+        No votes yet
+      </p>
+    )
 
   return (
     <div className="flex gap-1">

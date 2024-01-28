@@ -18,9 +18,10 @@ export default async function Home() {
   return (
     <main
       className={`
-      container max-w-[640px] mx-auto min-h-screen
+      container max-w-[640px] min-h-screen
       flex flex-col
-      px-1 sm:px-0
+      mx-0 sm:mx-auto
+      px-0 sm:px-1
     `}
     >
       <Navbar />

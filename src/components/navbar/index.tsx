@@ -3,7 +3,7 @@ import UserAvatar from "../user-avatar"
 
 export default function Navbar() {
   return (
-    <div className="flex justify-between border-b py-2 items-end">
+    <div className="flex justify-between border-b py-2 items-end px-2 sm:px-0">
       <p className="text-3xl font-semibold">SkateNextApp</p>
       <div className="flex items-center gap-2">
         <UserAvatar
