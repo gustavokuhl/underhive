@@ -32,10 +32,11 @@ export default function PostHeader({ post }: PostHeaderProps) {
           fallback={post.user.name.slice(0, 1).toUpperCase()}
         />
         <div className="flex flex-col justify-between">
-          <div className="flex gap-2 items-end">
+          <div className="flex gap-1 items-center">
             <p className="text-sm font-medium">{post.user.name}</p>
+            <p className="text-xs text-muted-foreground">·</p>
             <p className="text-xs text-muted-foreground">
-              · {moment.utc(post.createdDate).fromNow()}
+              {moment.utc(post.createdDate).fromNow()}
             </p>
           </div>
           <p className="text-sm font-light">{post.title}</p>
