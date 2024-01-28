@@ -21,7 +21,7 @@ export class PostModel {
     } as PostUser
     this.title = discussion.title
     this.permLink = discussion.permlink
-    this.thumbnail = ""
+    this.thumbnail = PostModel.getThumbnail(discussion.json_metadata)
     this.createdDate = discussion.created
     ;(this.earnings = PostModel.getEarnings(
       discussion.total_payout_value.toString(),
@@ -46,5 +46,11 @@ export class PostModel {
       pendingPayoutValue.toString().split(" ")[0]
     )
     return totalPayout + curatorPayout + pendingPayout
+  }
+
+  static getThumbnail(metadataJson: string) {
+    const images = JSON.parse(metadataJson).image
+    if (Array.isArray(images) && images.length) return images[0]
+    return ""
   }
 }

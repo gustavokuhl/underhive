@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "ipfs.skatehive.app",
+        hostname: "*",
       },
     ],
   },
