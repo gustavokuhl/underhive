@@ -1,7 +1,20 @@
 import Navbar from "@/components/navbar"
 import Timeline from "@/components/timeline"
+import { fetchPosts } from "@/hooks/use-posts"
+import {
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from "@tanstack/react-query"
 
-export default function Home() {
+export default async function Home() {
+  const queryClient = new QueryClient()
+
+  await queryClient.prefetchQuery({
+    queryKey: ["posts"],
+    queryFn: fetchPosts,
+  })
+
   return (
     <main
       className={`
@@ -11,7 +24,9 @@ export default function Home() {
     `}
     >
       <Navbar />
-      <Timeline />
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <Timeline />
+      </HydrationBoundary>
     </main>
   )
 }

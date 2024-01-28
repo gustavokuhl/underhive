@@ -1,10 +1,16 @@
+import { PostModel } from "@/app/models/post"
 import Image from "next/image"
 import PostFooter from "./footer"
 import PostHeader from "./header"
 
-export default function Post() {
+interface PostProps {
+  post: PostModel
+}
+
+export default function Post({ post }: PostProps) {
   return (
     <div className="flex flex-col gap-2">
+      {post.title}
       <PostHeader />
       <div className="aspect-video relative">
         <Image
